@@ -1,0 +1,209 @@
+/* -------------------- General Page Styles -------------------- */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: #333;
+}
+
+/* -------------------- Navbar -------------------- */
+nav {
+  width: 100%;
+  background-color: #FFD700; /* Bright yellow */
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+  gap: 50px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 2px;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #444;
+}
+
+/* -------------------- Sections -------------------- */
+section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+/* -------------------- Headings -------------------- */
+h1, h2 {
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-transform: uppercase; /* ALL CAPS */
+}
+
+/* -------------------- Slideshow -------------------- */
+.slideshow {
+  margin-top: 30px;
+  text-align: center;
+  position: relative;
+  width: 600px;       
+  height: 375px;      
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slideshow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slideshow img.active {
+  opacity: 1;
+}
+
+/* -------------------- Games Gallery -------------------- */
+.game-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  padding: 50px 20px;
+}
+
+.game-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.game-row a img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-row a img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px #fdd835;
+}
+
+/* Valorant slightly bigger */
+.valorant-img {
+  width: 180px;
+  height: 180px;
+}
+
+/* -------------------- Socials Page -------------------- */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.socials a img.social-icon {
+  width: 200px;
+  height: 200px;
+  object-fit: contain; /* keeps aspect ratio without stretching */
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.socials a img.social-icon:hover {
+  transform: scale(1.1); /* slightly bigger on hover */
+  filter: brightness(1.2); /* brighter on hover */
+}
+
+/* -------------------- Responsive Design -------------------- */
+@media (max-width: 900px) {
+  .slideshow {
+    width: 450px;
+    height: 281px;
+  }
+}
+
+@media (max-width: 600px) {
+  .slideshow {
+    width: 300px;
+    height: 188px;
+  }
+  nav {
+    gap: 20px;
+  }
+  .game-row a img {
+    width: 120px;
+    height: 120px;
+  }
+  .valorant-img {
+    width: 150px;
+    height: 150px;
+  }
+  .socials a img.social-icon {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Live Clock */
+#clock {
+  margin: 60px 0 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+
+/* Pokémon GO smaller grid */
+.pogo-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* top row: 6 images */
+  gap: 15px;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.pogo-grid img {
+  width: 100%;
+  aspect-ratio: 9 / 16; /* keeps vertical portrait ratio */
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.pogo-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #fdd835;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+  .pogo-grid {
+    grid-template-columns: repeat(3, 1fr); /* stack into 3 columns on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .pogo-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on phones */
+  }
+}
+
+
+/* -------------------- Footer -------------------- */
+footer {
+  display: none;
+}

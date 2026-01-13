@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokémon Go - Zachary</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="about.html">ABOUT ME</a>
+    <a href="socials.html">SOCIALS</a>
+    <a href="games.html">GAMES</a>
+  </nav>
+
+  <section>
+    <h1>SHUNDO COLLECTION</h1>
+<div class="pogo-grid">
+    <!-- Row 1 (6 images) -->
+    <img src="images/pokemon/magby.png" alt="Pokémon Go 1">
+    <img src="images/pokemon/hooh.png" alt="Pokémon Go 2">
+    <img src="images/pokemon/starly.png" alt="Pokémon Go 3">
+    <img src="images/pokemon/lapras.png" alt="Pokémon Go 4">
+    <img src="images/pokemon/garticuno.png" alt="Pokémon Go 5">
+    <img src="images/pokemon/butterfree.png" alt="Pokémon Go 6">
+
+    <!-- Row 2 (5 images) -->
+    <img src="images/pokemon/snorlax.png" alt="Pokémon Go 7">
+    <img src="images/pokemon/aninetales.png" alt="Pokémon Go 8">
+    <img src="images/pokemon/zamazenta.png" alt="Pokémon Go 9">
+    <img src="images/pokemon/lunatone.png" alt="Pokémon Go 10">
+    <img src="images/pokemon/pikachu.png" alt="Pokémon Go 11">
+  </div>
+</section>
+</section>
+  </section>
+
+  <!-- Live Clock -->
+  <div id="clock"></div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+
+      document.getElementById("clock").innerText =
+        now.toLocaleDateString(undefined, options) +
+        " • " +
+        now.toLocaleTimeString();
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+
+</body>
+</html>
