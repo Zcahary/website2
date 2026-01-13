@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Zachary</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="socials.html">Socials</a>
+    <a href="games.html">Games</a>
+  </nav>
+
+  <!-- Main content -->
+  <section>
+    <h1>WELCOME TO MY WEBSITE</h1>
+    <p>Here are some pictures of me and my family :)</p>
+
+    <!-- Slideshow -->
+    <div class="slideshow" id="slideshow">
+      <img src="images/image1.jpg" class="active" alt="Slideshow Image">
+      <img src="images/image2.jpg" alt="Slideshow Image">
+      <img src="images/image3.jpg" alt="Slideshow Image">
+      <img src="images/image4.jpg" alt="Slideshow Image">
+      <img src="images/image5.jpg" alt="Slideshow Image">
+      <img src="images/image6.jpg" alt="Slideshow Image">
+      <img src="images/image7.jpg" alt="Slideshow Image">
+      <img src="images/image8.jpg" alt="Slideshow Image">
+      <img src="images/image9.jpg" alt="Slideshow Image">
+      <img src="images/image10.jpg" alt="Slideshow Image">
+    </div>
+  </section>
+
+  <!-- Live Clock -->
+  <div id="clock"></div>
+
+  <!-- Slideshow Script -->
+  <script>
+    const slides = document.querySelectorAll('#slideshow img');
+    let remainingIndexes = Array.from(Array(slides.length).keys());
+    let currentIndex = 0;
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    remainingIndexes = shuffle(remainingIndexes);
+
+    function showNextImage() {
+      slides[currentIndex].classList.remove('active');
+      let nextIndex = remainingIndexes.shift();
+      if (remainingIndexes.length === 0) {
+        remainingIndexes = Array.from(Array(slides.length).keys()).filter(i => i !== nextIndex);
+        remainingIndexes = shuffle(remainingIndexes);
+      }
+      slides[nextIndex].classList.add('active');
+      currentIndex = nextIndex;
+    }
+
+    setInterval(showNextImage, 2000); // switch every 2 seconds
+  </script>
+
+  <!-- Clock Script -->
+  <script>
+    function updateClock() {
+      const now = new Date();
+
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+
+      const date = now.toLocaleDateString(undefined, options);
+      const time = now.toLocaleTimeString();
+
+      document.getElementById("clock").innerText = `${date} • ${time}`;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+
+</body>
+</html>
